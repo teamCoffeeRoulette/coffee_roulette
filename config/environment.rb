@@ -28,6 +28,7 @@ configure :production, :devolpment do
        :password => db.password,
        :database => db.path[1..-1],
        :encoding => 'utf8'
+  )
 end
 
 # Development and Test Sinatra Configuration
