@@ -12,7 +12,7 @@ APP_ROOT = Pathname.new(File.expand_path('../../', __FILE__))
 APP_NAME = APP_ROOT.basename.to_s
 
 # Global Sinatra configuration
-configure do
+configure :production, :devolpment do
   set :root, APP_ROOT.to_path
   set :server, :puma
 
@@ -20,6 +20,14 @@ configure do
   set :session_secret, ENV['SESSION_KEY'] || 'lighthouselabssecret'
 
   set :views, File.join(Sinatra::Application.root, "app", "views")
+
+  ActiveRecord::Base.establish_connection(
+       :adapter  => db.scheme == 'postgres' ? 'postgresql' : db.scheme,
+       :host     => db.host,
+       :username => db.user,
+       :password => db.password,
+       :database => db.path[1..-1],
+       :encoding => 'utf8'
 end
 
 # Development and Test Sinatra Configuration
