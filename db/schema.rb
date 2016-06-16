@@ -11,36 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160614193019) do
-
-  create_table "reviews", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "song_id"
-    t.string   "review_title"
-    t.string   "review_body"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "songs", force: :cascade do |t|
-    t.integer  "user_id"
-    t.string   "title"
-    t.string   "artist"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "upvotes", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "song_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(version: 20160616234453) do
 
   create_table "users", force: :cascade do |t|
     t.string   "email"
     t.string   "display_name"
     t.string   "password_hash"
+    t.string   "phone_number"
+    t.string   "drink"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
