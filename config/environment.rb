@@ -21,7 +21,7 @@ configure :production, :devolpment do
 
   set :views, File.join(Sinatra::Application.root, "app", "views")
 
-  db = URI.parse(ENV['DATABASE_URL']
+  db = URI.parse(ENV['DATABASE_URL'])
 
   ActiveRecord::Base.establish_connection(
        :adapter  => db.scheme == 'postgres' ? 'postgresql' : db.scheme,
