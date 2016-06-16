@@ -1,0 +1,14 @@
+<h1>LOGIN</h1>
+
+<form method="POST" action="/create_account">
+  <lable for="email">Email</label>
+  <input name="email" type="text" />
+
+  <label for="name">User Name</label>
+  <input name="name" type="text" />
+
+  <label for="password">Password:</label>
+  <input name="password" type="password" />
+
+  <input value="Create Account" type="submit" />
+</form>
