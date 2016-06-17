@@ -73,12 +73,19 @@ get '/games/new' do
 end
 
 post '/games/new' do
-  @game = Game.new(
+  @game = (
     user_id: @current_user
     )
-  @game.save!
-  redirect '/games/:id'
+  @players = params[:user_list].split(',').map do |name| name.strip
+  end
+  # @game.save!
+  @players << get_current_name
+  redirect '/games/current', {players: @players}
 end
 
+get 'games/current' do
+  @players = params[:players]
+  erb :'games/current'
+end
 
 
