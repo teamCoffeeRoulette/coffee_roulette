@@ -71,3 +71,10 @@ get '/profile/show' do
   erb :'profile/show'
 end
 
+get '/profile/edit' do
+  @user = User.find(session[:user_id])
+  erb :'profile/edit'
+end
+
+
+
