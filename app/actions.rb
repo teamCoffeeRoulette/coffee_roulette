@@ -73,9 +73,6 @@ get '/games/new' do
 end
 
 post '/games/new' do
-  @game = (
-    user_id: @current_user
-    )
   @players = params[:user_list].split(',').map do |name| name.strip
   end
   # @game.save!
