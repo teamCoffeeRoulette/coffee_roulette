@@ -55,12 +55,13 @@ get '/users/new' do
 end
 
 post '/users/new' do
-  if params[:email] && params[:display_name] && params[:password]
+  if params[:email] && params[:display_name] && params[:password] && params[:phone_number]
     user = User.new(params)
     user.password = params[:password]
     user.save
     redirect '/login'
   else
+    # create a create_user error page
     redirect '/'
   end
 end
