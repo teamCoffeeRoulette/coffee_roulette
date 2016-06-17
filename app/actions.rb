@@ -72,13 +72,13 @@ get '/games/new' do
   erb :games_new
 end
 
-post '/games/new' do
-  @game = Game.new(
-    user_id: params[:user_id]
-    )
-  @game.save!
-  redirect '/games/:id'
-end
+# post '/games/new' do
+#   @game = Game.new(
+#     user_id: params[:user_id]
+#     )
+#   @game.save!
+#   redirect '/games/:id'
+# end
 
 
 
