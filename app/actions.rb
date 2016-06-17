@@ -55,7 +55,7 @@ get '/users/new' do
 end
 
 post '/users/new' do
-  if params[:email] && params[:display_name] && params[:password] && params[:phone_number]
+  if params[:email] && params[:display_name] && params[:password] && params[:phone_number] && params[:drink]
     user = User.new(params)
     user.password = params[:password]
     user.save
@@ -81,7 +81,9 @@ post '/profile/edit' do
   @user.email = params[:email]
   @user.display_name = params[:display_name]
   @user.phone_number = params[:phone_number]
+  @user.drink = params[:drink]
   @user.password = params[:password]
+  @user.save
 end
 
 
