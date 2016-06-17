@@ -3,9 +3,8 @@ require 'bcrypt'
 class User < ActiveRecord::Base
   include BCrypt
 
-  has_many :songs
-  has_many :upvotes
-  has_many :reviews
+  has_many :orders
+  has_many :games, through: :orders
 
   # Getter
   def password
