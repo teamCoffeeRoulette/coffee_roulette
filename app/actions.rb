@@ -15,9 +15,11 @@ helpers do
 end
 
 get '/' do
-  
-
-  erb :index
+  if @current_user.nil?
+    erb :main
+  else
+    erb :index
+  end
 end
 
 get '/login' do
@@ -65,5 +67,6 @@ post '/users/new' do
     redirect '/'
   end
 end
+
 
 
