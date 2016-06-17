@@ -1,7 +1,18 @@
 <h2>Edit Profile</h2>
-</br>
+<p>
 <h2> Update your profile preferences below:
-</br>
+<p>
+
+<% if @user && @user.errors.any? %>
+  <div>
+    <strong>Some issues with your Profile Update, please fix them:</strong>
+    <ul>
+      <% @user.errors.full_messages.each do |user_detail| %>
+        <li><%= user_detail %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
 
 <form method="POST" action="/profile/edit">
   <label for="display_name">User Name</label>

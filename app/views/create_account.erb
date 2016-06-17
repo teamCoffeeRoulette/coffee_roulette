@@ -1,5 +1,16 @@
 <h1>CREATE ACCOUNT</h1>
 
+<% if @user && @user.errors.any? %>
+  <div>
+    <strong>You left some details out, please fix them:</strong>
+    <ul>
+      <% @user.errors.full_messages.each do |user_detail| %>
+        <li><%= user_detail %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <form method="POST" action="/users/new">
   <lable for="email">Email</label>
   <input name="email" type="text" /></br>

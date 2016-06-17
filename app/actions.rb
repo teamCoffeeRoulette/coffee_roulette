@@ -62,7 +62,7 @@ post '/users/new' do
     redirect '/login'
   else
     # create a create_user error page
-    redirect '/'
+    redirect '/create_account'
   end
 end
 
