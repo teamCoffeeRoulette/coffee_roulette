@@ -66,4 +66,8 @@ post '/users/new' do
   end
 end
 
+get '/profile/show' do
+  @user = User.find(session[:user_id])
+  erb :'profile/show'
+end
 
