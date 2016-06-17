@@ -84,7 +84,7 @@ post '/profile/edit' do
   @user.drink = params[:drink]
   @user.password = params[:password]
   if @user.save
-    redirect '/profile.show'
+    redirect '/profile/show'
   else
     erb :'/profile/edit'
   end
