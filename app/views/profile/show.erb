@@ -1,10 +1,10 @@
 <h1> User Profile </h1>
 
 <div>
-  <h3><%= @user.display_name %></h3>
+  <h3>Logged in as : <%= @user.display_name %></h3>
   <ul>
-    <li><%= @user.email %></li>
-    <li><%= @user.phone_number %></li>
-    <li><%= @user.drink %></li>
+    <li>Email: <%= @user.email %></li>
+    <li>Ph: <%= @user.phone_number %></li>
+    <li>Default Coffee Order: <%= @user.drink %></li>
   </ul>
 </div>
