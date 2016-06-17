@@ -83,7 +83,11 @@ post '/profile/edit' do
   @user.phone_number = params[:phone_number]
   @user.drink = params[:drink]
   @user.password = params[:password]
-  @user.save
+  if @user.save
+    redirect '/profile.show'
+  else
+    erb :'/profile/edit'
+  end
 end
 
 
