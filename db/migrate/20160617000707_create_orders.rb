@@ -1,9 +1,10 @@
 class CreateOrders < ActiveRecord::Migration
-
-  create_table :orders do |t|
-    t.reference :user_id
-    t.reference :game_id
-    t.timestamps
+  def change
+    create_table :orders do |t|
+      t.references :user_id
+      t.references :game_id
+      t.timestamps
+    end
   end
 
 end
