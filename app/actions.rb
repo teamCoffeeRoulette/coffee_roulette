@@ -69,7 +69,7 @@ post '/users/new' do
 end
 
 get '/games/new' do
-  erb :games_new
+  erb :'games/new'
 end
 
 # post '/games/new' do
