@@ -16,9 +16,9 @@ end
 
 get '/' do
   if @current_user.nil?
-    erb :main
+    erb :'main'
   else
-    erb :index
+    erb :'index'
   end
 end
 
@@ -26,7 +26,7 @@ get '/login' do
   if @current_user
     redirect "/"
   else
-    erb :login
+    erb :'login'
   end
 
 end
@@ -42,7 +42,7 @@ post '/login' do
 end
 
 get '/login/error' do
-  erb :login_error
+  erb :'login_error'
 end
 
 get "/logout" do
@@ -53,7 +53,7 @@ get "/logout" do
 end
 
 get '/users/new' do
-  erb :create_account
+  erb :'create_account'
 end
 
 post '/users/new' do
@@ -77,7 +77,7 @@ post '/games/new' do
   end
   # @game.save!
   @players << get_current_name
-  redirect '/games/current', {players: @players}
+  redirect '/games/current', @players
 end
 
 get 'games/current' do
