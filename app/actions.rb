@@ -76,5 +76,12 @@ get '/profile/edit' do
   erb :'profile/edit'
 end
 
+post '/profile/edit' do
+  @user = User.find(session[:user_id])
+  @user.email = params[:email]
+  @user.display_name = params[:display_name]
+  @user.phone_number = params[:phone_number]
+  @user.password = params[:password]
+end
 
 
