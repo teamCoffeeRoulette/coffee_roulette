@@ -74,7 +74,7 @@ end
 
 post '/games/new' do
   @game = Game.new(
-    user_id: params[:user_id]
+    user_id: @current_user
     )
   @game.save!
   redirect '/games/:id'
