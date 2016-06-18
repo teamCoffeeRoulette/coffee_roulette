@@ -151,7 +151,9 @@ get '/games/complete/:id' do |id|
   game_holder = Game.find(id)
   if game_holder
     game_holder.is_active = false
+    game_holder.save
   end
+  redirect '/'
 end
 
 get '/login/peter' do
