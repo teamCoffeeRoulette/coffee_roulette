@@ -1,30 +1,41 @@
 # Homepage (Root path)
 helpers do
-  def current_user_nil?
-    session[:user_id]
+  def get_current_user
+    @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
 
   def get_current_name
-    @current_user ||= User.find(session[:user_id]) if session[:user_id]
+    get_current_user
     if @current_user.nil?
       "Guest"
     else
       @current_user.display_name
     end
   end
+
+  def get_login_or_logout
+    get_current_user
+    if @current_user
+      return "<a href=/logout>Logout</a>"
+    else
+      return "<a href=/login>Login</a>"
+    end
+  end
 end
 
 get '/' do
-  
-
-  erb :index
+  if @current_user.nil?
+    erb :main
+  else
+    erb :'index'
+  end
 end
 
 get '/login' do
   if @current_user
     redirect "/"
   else
-    erb :login
+    erb :'login'
   end
 
 end
@@ -40,7 +51,7 @@ post '/login' do
 end
 
 get '/login/error' do
-  erb :login_error
+  erb :'login_error'
 end
 
 get "/logout" do
@@ -51,7 +62,7 @@ get "/logout" do
 end
 
 get '/users/new' do
-  erb :create_account
+  erb :'create_account'
 end
 
 post '/users/new' do
@@ -90,4 +101,49 @@ post '/profile/edit' do
   end
 end
 
+get '/games/new' do
+  erb :'games/new'
+end
 
+post '/games/new' do
+  user = {user_id: User.find(session[:user_id]).id}
+  game = Game.new(user)
+  game.save
+
+  players = params[:user_list].split(',').map do |name| 
+    name.strip
+  end
+  players << get_current_name
+  
+  @order_new = nil
+  players.each do |player|
+    order_data = {user_id: User.find_by(display_name: player).id, game_id: game.id}
+    @order_new = Order.new(order_data)
+    @order_new.save
+  end
+
+  redirect "/games/current/#{game.id}"
+end
+
+get '/games/current' do
+  # players = params[:players]
+  erb :'games/current'
+end
+
+get '/login/peter' do
+  user = User.find_by(email: "peter@werl.me")
+  session[:user_id] = user.id
+  redirect '/'
+end
+
+get '/login/jason' do
+  user = User.find_by(email: "jason@email.com")
+  session[:user_id] = user.id
+  redirect '/'
+end
+
+get '/login/jairus' do
+  user = User.find_by(email: "jairus@email.com")
+  session[:user_id] = user.id
+  redirect '/'
+end

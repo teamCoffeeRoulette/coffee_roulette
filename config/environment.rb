@@ -12,7 +12,7 @@ APP_ROOT = Pathname.new(File.expand_path('../../', __FILE__))
 APP_NAME = APP_ROOT.basename.to_s
 
 # Global Sinatra configuration
-configure :production, :devolpment do
+configure do
   set :root, APP_ROOT.to_path
   set :server, :puma
 
@@ -21,6 +21,23 @@ configure :production, :devolpment do
 
   set :views, File.join(Sinatra::Application.root, "app", "views")
 
+end
+# Development and Test Sinatra Configuration
+configure :development, :test do
+  require 'pry'
+  
+  ActiveRecord::Base.establish_connection(
+       :adapter  => 'postgresql',
+       :host     => 'ec2-50-19-219-148.compute-1.amazonaws.com',
+       :username => '',
+       :password => '',
+       :database => 'd20hlg33c1mr4e',
+       :encoding => 'utf8'
+  )
+end
+
+# Production Sinatra Configuration
+configure :production do
   db = URI.parse(ENV['DATABASE_URL'])
 
   ActiveRecord::Base.establish_connection(
@@ -31,16 +48,6 @@ configure :production, :devolpment do
        :database => db.path[1..-1],
        :encoding => 'utf8'
   )
-end
-
-# Development and Test Sinatra Configuration
-configure :development, :test do
-  require 'pry'
-end
-
-# Production Sinatra Configuration
-configure :production do
-  # NOOP
 end
 
 # Set up the database and models
