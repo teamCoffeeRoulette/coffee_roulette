@@ -84,7 +84,7 @@ post '/games/new' do
 end
 
 get 'games/current' do
-  @players = params[:players]
+  # @players = params[:players]
   erb :'games/current'
 end
 
