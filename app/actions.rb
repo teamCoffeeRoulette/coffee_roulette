@@ -16,7 +16,7 @@ end
 
 get '/' do
   if @current_user.nil?
-    erb :'main'
+    erb :main
   else
     erb :'index'
   end
@@ -75,14 +75,16 @@ end
 post '/games/new' do
   @players = params[:user_list].split(',').map do |name| name.strip
   end
-  # @game.save!
+  user = {user_id: User.find(session[:user_id])}
+
+  game = Game.new(user)
+  game.save
   @players << get_current_name
-  redirect '/games/current', @players
+  redirect "/games/current/#{game.id}"
 end
 
 get 'games/current' do
   @players = params[:players]
   erb :'games/current'
 end
-
 
