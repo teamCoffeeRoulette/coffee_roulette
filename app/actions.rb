@@ -42,11 +42,7 @@ helpers do
 end
 
 get '/' do
-  if @current_user.nil?
-    erb :main
-  else
-    erb :'index'
-  end
+  erb :main
 end
 
 get '/login' do
