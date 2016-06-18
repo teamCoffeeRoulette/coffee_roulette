@@ -133,8 +133,7 @@ post '/games/new' do
   @order_new = nil
   players.each do |player|
 
-    order_data = {user_id: User.find_by(display_name: player).id, 
-                  game_id: @game.id}
+    order_data = {user_id: User.find_by(display_name: player).id, game_id: @game.id}
     @order_new = Order.new(order_data)
     @order_new.save
   end
