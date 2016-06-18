@@ -21,6 +21,10 @@ helpers do
       return "<a href=/login>Login</a>"
     end
   end
+
+  def get_game_participants_as_array
+    users = Order.find_by(game_id: cookies[:game_id])
+  end
 end
 
 get '/' do
@@ -122,11 +126,11 @@ post '/games/new' do
     @order_new.save
   end
 
-  redirect "/games/current/#{game.id}"
+  redirect "/games/#{game.id}"
 end
 
-get '/games/current' do
-  # players = params[:players]
+get '/games/:id' do |id|
+  cookies[:game_id] = id;
   erb :'games/current'
 end
 
