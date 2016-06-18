@@ -143,7 +143,7 @@ post '/games/new' do
     client = Twilio::REST::Client.new ENV['TW_SSID'], ENV['TW_AUTH']
     client.account.messages.create({
       from: '+12044006394'
-      to:   '+#{player.phone_numer}'
+      to:   '+1#{player.phone_numer}'
       body: 'Coffee Roulette'
     })
   end
@@ -184,11 +184,4 @@ get '/login/jairus' do
 end
 
 get '/test/twilio' do
-  @client = Twilio::REST::Client.new ENV['TW_SSID'], ENV['TW_AUTH']
-   
-  @client.account.messages.create({
-    :from => '+12044006394', 
-    :to => '+17803622157', 
-    :body => 'TEST', 
-  })
 end
