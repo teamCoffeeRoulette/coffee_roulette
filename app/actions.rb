@@ -106,6 +106,7 @@ get '/games/new' do
 end
 
 post '/games/new' do
+  user = {user_id: User.find(session[:user_id]).id}
   game = Game.new(user)
   game.save
 
@@ -114,9 +115,11 @@ post '/games/new' do
   end
   players << get_current_name
   
+  @order_new = nil
   players.each do |player|
-    order_data = {user_id: User.find(player).id, game_id: game.id}
-    order = Order.new(order_data)
+    order_data = {user_id: User.find_by(display_name: player).id, game_id: game.id}
+    @order_new = Order.new(order_data)
+    @order_new.save
   end
 
   redirect "/games/current/#{game.id}"
@@ -127,3 +130,8 @@ get '/games/current' do
   erb :'games/current'
 end
 
+get '/login/peter' do
+  user = User.find_by(email: "peter@werl.me")
+  session[:user_id] = user.id
+  redirect '/'
+end
