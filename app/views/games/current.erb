@@ -1,9 +1,15 @@
 <div class="main_header">
-<h1> Roulette Game </h1>
+<h1> Your CoffeeRoulette Game Roster:</h1>
 </div>
 
 <ul>
-<%  @players.each do |player| %>
-<li><% player %></li>
+<%  get_game_participants_as_array.each do |player| %>
+  <%="<li>" +  player.display_name + "</li>" %>
 <% end %> 
 </ul>
+
+<div class="start_game">
+  <button type="button" class="btn btn-warning btn-lg btn-block">Start the Game!</button>
+  <button type="button" class="btn btn-default btn-sm btn-block">Go back</button>
+</div>
+

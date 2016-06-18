@@ -1,0 +1,10 @@
+.logo-size {
+  display: inline-block;
+  max-width: 20%;
+  height: auto;
+}
+
+.start_game {
+    float: right;
+    padding-right: 200px;
+}
