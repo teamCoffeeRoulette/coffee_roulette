@@ -1,4 +1,5 @@
 .logo-size {
-  max-height: 170%;
-  max-width: 170%;
+  display: inline-block;
+  max-width: 20%;
+  height: auto;
 }
