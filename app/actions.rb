@@ -177,7 +177,7 @@ get '/login/jairus' do
 end
 
 get '/test/twilio' do
-  @client = Twilio::REST::Client.new ENV['twilio_sid'], ENV['twilio_token']
+  @client = Twilio::REST::Client.new ENV['TW_SSID'], ENV['TW_AUTH']
    
   @client.account.messages.create({
     :from => '+12044006394', 
