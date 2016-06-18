@@ -106,18 +106,24 @@ get '/games/new' do
 end
 
 post '/games/new' do
-  @players = params[:user_list].split(',').map do |name| name.strip
-  end
-  user = {user_id: User.find(session[:user_id]).id}
-
   game = Game.new(user)
   game.save
-  @players << get_current_name
+
+  players = params[:user_list].split(',').map do |name| 
+    name.strip
+  end
+  players << get_current_name
+  
+  players.each do |player|
+    order_data = {user_id: User.find(player), game_id: game.id}
+    order = Order.new(order_data)
+  end
+
   redirect "/games/current/#{game.id}"
 end
 
 get '/games/current' do
-  # @players = params[:players]
+  # players = params[:players]
   erb :'games/current'
 end
 
