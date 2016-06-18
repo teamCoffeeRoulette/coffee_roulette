@@ -115,7 +115,7 @@ post '/games/new' do
   players << get_current_name
   
   players.each do |player|
-    order_data = {user_id: User.find(player), game_id: game.id}
+    order_data = {user_id: User.find(player).id, game_id: game.id}
     order = Order.new(order_data)
   end
 
