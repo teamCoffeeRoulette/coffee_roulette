@@ -27,11 +27,11 @@ configure :development, :test do
   require 'pry'
   
   ActiveRecord::Base.establish_connection(
-       :adapter  => '',
-       :host     => '',
+       :adapter  => 'postgresql',
+       :host     => 'ec2-50-19-219-148.compute-1.amazonaws.com',
        :username => '',
        :password => '',
-       :database => '',
+       :database => 'd20hlg33c1mr4e',
        :encoding => 'utf8'
   )
 end
