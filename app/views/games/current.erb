@@ -3,7 +3,7 @@
 </div>
 
 <ul>
-<%  @players.each do |player| %>
-<li><% player %></li>
+<%  get_game_participants_as_array.each do |player| %>
+  <%="<li>" +  player.display_name + "</li>" %>
 <% end %> 
 </ul>
