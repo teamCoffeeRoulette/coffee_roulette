@@ -3,6 +3,12 @@ require 'bcrypt'
 class User < ActiveRecord::Base
   include BCrypt
 
+  validates :display_name, presence: true
+  validates :email, presence: true
+  validates :phone_number, presence: true
+  validates :drink, presence: true
+  validates :password, presence: true
+
   has_many :orders
   has_many :games, through: :orders
 

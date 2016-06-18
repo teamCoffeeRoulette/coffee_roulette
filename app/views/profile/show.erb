@@ -1,0 +1,12 @@
+<h1> User Profile </h1>
+
+<div>
+  <h3>Logged in as : <%= @user.display_name %></h3>
+  <ul>
+    <li><h2>Email: <%= @user.email %></h2></li>
+    <li><h2>Ph: <%= @user.phone_number %></h2></li>
+    <li><h2>Default Coffee Order: <%= @user.drink %></h2></li>
+  </ul>
+</div>
+
+<a href="/profile/edit">Click here to Edit your Profile</a>

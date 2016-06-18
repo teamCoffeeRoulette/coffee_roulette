@@ -57,15 +57,51 @@ get '/users/new' do
 end
 
 post '/users/new' do
-  if params[:email] && params[:display_name] && params[:password] && params[:phone_number]
+  if params[:email] && params[:display_name] && params[:password] && params[:phone_number] && params[:drink]
     user = User.new(params)
     user.password = params[:password]
     user.save
     redirect '/login'
   else
     # create a create_user error page
-    redirect '/'
+    redirect '/users/new'
   end
+end
+
+get '/profile/show' do
+  @user = User.find(session[:user_id])
+  erb :'profile/show'
+end
+
+get '/profile/edit' do
+  @user = User.find(session[:user_id])
+  erb :'profile/edit'
+end
+
+post '/profile/edit' do
+  @user = User.find(session[:user_id])
+  @user.email = params[:email]
+  @user.display_name = params[:display_name]
+  @user.phone_number = params[:phone_number]
+  @user.drink = params[:drink]
+  @user.password = params[:password]
+  if @user.save
+    redirect '/profile/show'
+  else
+    erb :'/profile/edit'
+  end
+end
+
+get '/games/new' do
+  erb :'games/new'
+end
+
+post '/games/new' do
+  @game = Game.new(
+    user_id: @current_user
+    )
+  @game.save!
+  redirect '/games/:id'
 end
 
 
