@@ -1,12 +1,23 @@
 <div class="main_header">
-<h4 style="display: block; margin 0, auto"> <%= "Pssst! You're logged in as " + get_current_name %> </h4>
+<h1> Coffee Roulette </h1>
 </div>
 <hr/>
-<p>
-<p>
-<div class="jumbotron" style="padding: 30px; display: block; width: 50%; margin: auto">
-  <h1><%= "Hello " + get_current_name %></h1>
-  <p>Welcome to CoffeeRoulette! Round up some friends who *don't* want to go for their own coffee.... And let's get started! </p>
-  <p><a class="btn btn-primary btn-lg" href="/games/new" role="button">Start A New CoffeeRoulette</a></p>
+<div class="user_display">
+  <p> 
+    <%= "Hello " + get_current_name %>
+  </p>
 </div>
+<div class="login_logout">
+  <p>
+    <%= get_login_or_logout %>
+  </p>
+</div>
+<div class="sub_header">
+<h2> Start a new game! </h2>
+</div>
+<a href="/games/new">New Game</a>
 
+<div class="sub_header">
+<h2> Edit your profile </h2>
+</div>
+<a href="/profile/edit">Edit</a>
