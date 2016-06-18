@@ -18,7 +18,7 @@ get '/' do
   if @current_user.nil?
     erb :main
   else
-    erb :index
+    erb :'index'
   end
 end
 
@@ -26,7 +26,7 @@ get '/login' do
   if @current_user
     redirect "/"
   else
-    erb :login
+    erb :'login'
   end
 
 end
@@ -42,7 +42,7 @@ post '/login' do
 end
 
 get '/login/error' do
-  erb :login_error
+  erb :'login_error'
 end
 
 get "/logout" do
@@ -53,7 +53,7 @@ get "/logout" do
 end
 
 get '/users/new' do
-  erb :create_account
+  erb :'create_account'
 end
 
 post '/users/new' do
@@ -97,12 +97,18 @@ get '/games/new' do
 end
 
 post '/games/new' do
-  @game = Game.new(
-    user_id: @current_user
-    )
-  @game.save!
-  redirect '/games/:id'
+  @players = params[:user_list].split(',').map do |name| name.strip
+  end
+  user = {user_id: User.find(session[:user_id]).id}
+
+  game = Game.new(user)
+  game.save
+  @players << get_current_name
+  redirect "/games/current/#{game.id}"
 end
 
-
+get '/games/current' do
+  # @players = params[:players]
+  erb :'games/current'
+end
 
