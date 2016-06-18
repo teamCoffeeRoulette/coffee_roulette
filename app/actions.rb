@@ -75,7 +75,7 @@ end
 post '/games/new' do
   @players = params[:user_list].split(',').map do |name| name.strip
   end
-  user = {user_id: User.find(session[:user_id])}
+  user = {user_id: User.find(session[:user_id]).id}
 
   game = Game.new(user)
   game.save
