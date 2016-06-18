@@ -83,7 +83,7 @@ post '/games/new' do
   redirect "/games/current/#{game.id}"
 end
 
-get 'games/current' do
+get '/games/current' do
   # @players = params[:players]
   erb :'games/current'
 end
