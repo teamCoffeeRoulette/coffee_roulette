@@ -135,3 +135,15 @@ get '/login/peter' do
   session[:user_id] = user.id
   redirect '/'
 end
+
+get '/login/jason' do
+  user = User.find_by(email: "jason@email.com")
+  session[:user_id] = user.id
+  redirect '/'
+end
+
+get '/login/jairus' do
+  user = User.find_by(email: "jairus@email.com")
+  session[:user_id] = user.id
+  redirect '/'
+end
