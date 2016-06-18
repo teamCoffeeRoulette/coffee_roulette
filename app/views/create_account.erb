@@ -1,20 +1,32 @@
 <h1>CREATE ACCOUNT</h1>
+<<<<<<< HEAD
+
+<% if @user && @user.errors.any? %>
+  <div>
+    <strong>You left some details out, please fix them:</strong>
+    <ul>
+      <% @user.errors.full_messages.each do |user_detail| %>
+        <li><%= user_detail %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
 
 <form method="POST" action="/users/new">
-  <lable for="email">Email:</label>
+  <lable for="email">Email</label>
   <input name="email" type="text" /></br>
 
-  <label for="display_name">User Name:</label>
-  <input name="display_name" type="text" /> </br>
+  <label for="display_name">User Name</label>
+  <input name="display_name" type="text" /></br>
 
   <label for="phone_number">Phone Number:</label>
-  <input name="phone_number" type="tel" /> </br>
+  <input name="phone_number" type="tel" /></br>
 
-  <label for="drink">What is your default coffee drink?</label>
-  <input name="drink" type="text" /> </br>
+  <label for="drink">Default Coffee Preference:</label>
+  <input name="drink" type="drink" /></br>
 
   <label for="password">Password:</label>
-  <input name="password" type="password" /> </br>
-
+  <input name="password" type="password" /></br>
+  
   <input value="Create Account" type="submit" />
 </form>
