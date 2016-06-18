@@ -133,8 +133,7 @@ post '/games/new' do
   @order_new = nil
   players.each do |player|
 
-    order_data = {user_id: User.find_by(display_name: player).id, 
-                  game_id: @game.id}
+    order_data = {user_id: User.find_by(display_name: player).id, game_id: @game.id}
     @order_new = Order.new(order_data)
     @order_new.save
   end
@@ -145,6 +144,15 @@ end
 get '/games/:id' do |id|
   session[:game_id] = id;
   erb :'games/current'
+end
+
+get '/games/complete/:id' do |id|
+  game_holder = Game.find(id)
+  if game_holder
+    game_holder.is_active = false
+    game_holder.save
+  end
+  redirect '/'
 end
 
 get '/login/peter' do
