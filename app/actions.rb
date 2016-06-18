@@ -1,4 +1,7 @@
 # Homepage (Root path)
+
+require 'twilio-ruby'
+
 helpers do
   def get_current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
@@ -171,4 +174,14 @@ get '/login/jairus' do
   user = User.find_by(email: "jairus@email.com")
   session[:user_id] = user.id
   redirect '/'
+end
+
+get '/test/twilio' do
+  @client = Twilio::REST::Client.new ENV['twilio_sid'], ENV['twilio_token']
+   
+  @client.account.messages.create({
+    :from => '+12044006394', 
+    :to => '+17803622157', 
+    :body => 'TEST', 
+  })
 end
