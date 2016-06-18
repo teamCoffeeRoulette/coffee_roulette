@@ -14,6 +14,7 @@ gem 'tux'
 gem 'bcrypt'
 
 gem 'pg'
+gem 'twilio-ruby'
 
 # These gems are only installed when run as `bundle install --without production`
 group :development, :test do
