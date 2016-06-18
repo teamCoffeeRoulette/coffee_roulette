@@ -23,7 +23,18 @@ helpers do
   end
 
   def get_game_participants_as_array
-    users = Order.find_by(game_id: cookies[:game_id])
+    users = Order.where(game_id: cookies[:game_id])
+    @names = []
+
+    users.each do |u|
+      @names << u.user
+    end
+
+    @names
+  end
+
+  def get_all_users
+    User.
   end
 end
 
@@ -111,8 +122,8 @@ end
 
 post '/games/new' do
   user = {user_id: User.find(session[:user_id]).id}
-  game = Game.new(user)
-  game.save
+  @game = Game.new(user)
+  @game.save
 
   players = params[:user_list].split(',').map do |name| 
     name.strip
@@ -121,12 +132,14 @@ post '/games/new' do
   
   @order_new = nil
   players.each do |player|
-    order_data = {user_id: User.find_by(display_name: player).id, game_id: game.id}
+
+    order_data = {user_id: User.find_by(display_name: player).id, 
+                  game_id: @game.id}
     @order_new = Order.new(order_data)
     @order_new.save
   end
 
-  redirect "/games/#{game.id}"
+  redirect "/games/#{@game.id}"
 end
 
 get '/games/:id' do |id|

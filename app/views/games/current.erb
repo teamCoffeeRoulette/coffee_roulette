@@ -4,6 +4,6 @@
 
 <ul>
 <%  get_game_participants_as_array.each do |player| %>
-<li><% player %></li>
+  <%="<li>" +  player.display_name + "</li>" %>
 <% end %> 
 </ul>
