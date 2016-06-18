@@ -9,9 +9,9 @@
         </a>
       </div>
         <div style="float: right">
-          <button type="button" class="btn btn-default navbar-btn">Edit Profile</button>
-          <button type="button" class="btn btn-default navbar-btn">New Game</button>
-          <button type="button" class="btn btn-default navbar-btn">Logout</button>
+          <a href="/profile/edit"><button type="button" class="btn btn-default navbar-btn">Edit Profile</button></a>
+          <a href="/games/new"><button type="button" class="btn btn-default navbar-btn">New Game</button></a>
+          <button type="button" class="btn btn-default navbar-btn"><%= get_login_or_logout %></button></a>
       </div>
     </div>
   </nav>
