@@ -1,4 +1,4 @@
 .logo-size {
-  height: 25px;
-  width: auto;
+  max-height: 100%;
+  max-width: 100%;
 }
