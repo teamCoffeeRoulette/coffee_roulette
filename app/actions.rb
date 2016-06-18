@@ -23,7 +23,7 @@ helpers do
   end
 
   def get_game_participants_as_array
-    users = Order.where(game_id: cookies[:game_id])
+    users = Order.where(game_id: session[:game_id])
     @names = []
 
     users.each do |u|
@@ -143,7 +143,7 @@ post '/games/new' do
 end
 
 get '/games/:id' do |id|
-  cookies[:game_id] = id;
+  session[:game_id] = id;
   erb :'games/current'
 end
 
