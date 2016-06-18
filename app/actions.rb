@@ -34,7 +34,7 @@ helpers do
   end
 
   def get_all_users
-    User.
+    
   end
 end
 
