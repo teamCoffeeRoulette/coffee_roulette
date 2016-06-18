@@ -142,8 +142,8 @@ post '/games/new' do
     
     client = Twilio::REST::Client.new ENV['TW_SSID'], ENV['TW_AUTH']
     client.account.messages.create({
-      from: '+12044006394'
-      to:   '+1#{player.phone_numer}'
+      from: '+12044006394',
+      to:   '+1#{player.phone_numer}',
       body: 'Coffee Roulette'
     })
   end
