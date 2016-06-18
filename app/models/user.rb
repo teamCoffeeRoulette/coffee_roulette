@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   validates :email, presence: true
   validates :phone_number, presence: true
   validates :drink, presence: true
-  validates :password, presence: true
+  validates :password, presence: true, length: {greater_than: 2}
 
   has_many :orders
   has_many :games, through: :orders
