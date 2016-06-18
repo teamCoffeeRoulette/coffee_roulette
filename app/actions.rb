@@ -147,6 +147,13 @@ get '/games/:id' do |id|
   erb :'games/current'
 end
 
+get '/games/complete/:id' do |id|
+  game_holder = Game.find(id)
+  if game_holder
+    game_holder.is_active = false
+  end
+end
+
 get '/login/peter' do
   user = User.find_by(email: "peter@werl.me")
   session[:user_id] = user.id

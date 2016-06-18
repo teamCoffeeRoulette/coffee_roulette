@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20160618203118) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "is_active"
+    t.boolean  "is_active",  default: true
   end
 
   create_table "orders", force: :cascade do |t|
