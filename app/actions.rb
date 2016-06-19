@@ -157,6 +157,7 @@ post '/games/new' do
       user = User.find_by(display_name: player)
       if user && user.phone_number
         send_invite_message(user.phone_number)
+      end
     end
   end
   coffee_getter = User.find_by(display_name: players.sample)
