@@ -186,5 +186,5 @@ get '/login/jairus' do
 end
 
 get '/test/email' do
-  email_provider.send_fetch_email("peter@werl.me", nil)
+  send_fetch_email("peter@werl.me", nil)
 end
