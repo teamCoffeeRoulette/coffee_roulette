@@ -3,11 +3,17 @@ html *{
   letter-spacing: -.04em;
 }
 
-.table-font {
-  font-size: 120%;
-  font-family: courier;
-  text-align: center;
-  margin: auto;
+
+.btn-winner {
+  -webkit-border-radius: 13;
+  -moz-border-radius: 13;
+  border-radius: 13px;
+  color: #deb900;
+  font-size: 31px;
+  background: #ffffff;
+  padding: 20px 30px 20px 30px;
+  border: solid #deb900 2px;
+  text-decoration: none;
 }
 
 .logo-size {
