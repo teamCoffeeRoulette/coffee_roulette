@@ -42,7 +42,7 @@ helpers do
   end
 
   def results_table
-    result = Order.where(user_id: session[:user_id]).order("game_id DESC")
+    result = Order.where(user_id: session[:user_id]).order("game_id DESC").first(10)
   end
 
   def get_coffee_getter_name
@@ -56,6 +56,14 @@ helpers do
       "ERROR"
     end
   end
+  
+  def get_coffee_getter
+    coffee_order = Order.where(game_id: session[:game_id]).find_by(result: true)
+    if coffee_order
+      coffee_getter = coffee_order.user;
+      return coffee_getter
+    end
+  end
 end
 
 get '/' do
@@ -64,6 +72,15 @@ end
 
 get '/:id' do |id|
   erb :'games/fetch'
+end
+
+get '/message/:id' do |id|
+  send_link_message(id, get_coffee_getter.phone_number)
+  game = Game.find(id)
+  if game && !game.message
+    game.message = true
+  end
+  redirect "/#{id}"
 end
 
 get '/login' do
