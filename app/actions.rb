@@ -141,13 +141,15 @@ post '/games/new' do
     @order_new = Order.new(order_data)
     @order_new.save
     
-    number = User.find_by(display_name: player).phone_number
-    client = Twilio::REST::Client.new ENV['TW_SSID'], ENV['TW_AUTH']
-    client.account.messages.create({
-      from: '+12044006394',
-      to:   "+1#{number}",
-      body: 'Coffee Roulette'
-    })
+    if params[:send_message]
+      number = User.find_by(display_name: player).phone_number
+      client = Twilio::REST::Client.new ENV['TW_SSID'], ENV['TW_AUTH']
+      client.account.messages.create({
+        from: '+12044006394',
+        to:   "+1#{number}",
+        body: 'Coffee Roulette'
+      })
+    end
   end
 
   redirect "/games/#{@game.id}"
