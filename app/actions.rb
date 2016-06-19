@@ -52,8 +52,9 @@ helpers do
       if coffee_getter
         coffee_getter.display_name
       end
+    else
+      "ERROR"
     end
-    "ERROR"
   end
 end
 
@@ -175,6 +176,7 @@ post '/games/new' do
     order.result = true
     order.save
   end
+  session[:game_id] = @game.id
   redirect "/games/#{@game.id}"
 end
 
@@ -189,7 +191,6 @@ get '/games/complete/:id' do |id|
     game_holder.is_active = false
     game_holder.save
   end
-  session[:game_id] = nil
   redirect "/#{id}"
 end
 
