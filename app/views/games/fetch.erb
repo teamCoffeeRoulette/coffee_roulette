@@ -2,14 +2,14 @@
   <h1> Purchase List </h1>
 </div>
 
-<div>
+<div class="jumbotron jumbotron-fetch">
   <h3> Looks like <%= get_coffee_getter.display_name %> is getting the coffee! </h3>
-</div>
 
-<div>
-  <ul>
-    <%  get_game_participants_as_array.each do |player| %>
-      <%="<li>" + player.display_name + " - " + player.drink + "</li>" %>
-    <% end %> 
-  </ul>
+  <div>
+    <ul>
+      <%  get_game_participants_as_array.each do |player| %>
+        <%="<li>" + player.display_name + " - " + player.drink + "</li>" %>
+      <% end %> 
+    </ul>
+  </div>
 </div>
