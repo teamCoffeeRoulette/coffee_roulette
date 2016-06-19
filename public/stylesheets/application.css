@@ -96,6 +96,7 @@ html *{
 }
 
 .jumbotron-display-names {
+  margin: auto;
   width: 40%;
   font-size: 1.7em;
 }
