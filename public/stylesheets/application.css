@@ -10,8 +10,8 @@ html *{
 }
 
 .start_game {
-    float: right;
-    padding-right: 200px;
+    float: bottom;
+    padding-bottom: 200px;
 }
 
 #new_game, body {
@@ -91,6 +91,7 @@ html *{
 }
 
 .jumbotron-display-names li {
-  color: ##73066e;
+  padding-top: 3px;
+  padding-left: 8px;
 }
 
