@@ -10,7 +10,7 @@
 }
 
 #new_game, body {
-  background-image: url("http://static.squarespace.com/static/5262b425e4b04c04f40cd6e6/t/5262fb22e4b0bb6d9c2d260a/1382218530727/Coffee-Beans.jpg");
+  background-image: url("https://raw.githubusercontent.com/teamCoffeeRoulette/coffee_roulette/dev/public/img/Coffee-Beans_wash.jpg");
   margin: auto;
   position: center;
   -webkit-background-size: cover;
