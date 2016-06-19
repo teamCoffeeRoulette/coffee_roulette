@@ -1,4 +1,4 @@
-require 'twilio_ruby'
+require 'twilio-ruby'
 require 'phony'
 
 def send_invite_message (phone_number) 
