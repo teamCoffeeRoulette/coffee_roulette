@@ -26,7 +26,7 @@ class User < ActiveRecord::Base
 
   # Get formatted phone number
   def get_formatted_phone_number
-    Phony.format(phone_number)
+    Phony.format(phone_number.to_s)
   end
 
 end
