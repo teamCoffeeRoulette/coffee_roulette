@@ -1,11 +1,11 @@
 require 'phony'
 
 def test_number(phone_number)
-  if Phony.plausible(phone_number)
+  if Phony.plausible?(phone_number)
     Phony.normalize(phone_number)
-  elsif Phony.plausible ("+#{phone_number}")
+  elsif Phony.plausible?("+#{phone_number}")
     Phony.normalize("+#{phone_number}")
-  elsif Phony.plausible ("+1#{phone_number}")
+  elsif Phony.plausible?("+1#{phone_number}")
     Phony.normalize("+1#{phone_number}")
   else
     false
