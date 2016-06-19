@@ -193,7 +193,6 @@ get '/games/complete/:id' do |id|
     game_holder.is_active = false
     game_holder.save
   end
-  session[:game_id] = nil
   redirect "/#{id}"
 end
 
