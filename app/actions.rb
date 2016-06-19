@@ -160,7 +160,6 @@ post '/games/new' do
   coffee_getter_order.each do |order|
     order.result = true
     order.save
-    puts order
   end
   redirect "/games/#{@game.id}"
 end
