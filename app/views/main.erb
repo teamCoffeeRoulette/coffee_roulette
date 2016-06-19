@@ -15,12 +15,12 @@
 
 <div>
   <table class="table table-striped">
-    <%= results_table.each do |result|%>
-    <%= "<tr>" %>
-    <%= result.game_id %>
-    <%= result.result %>
-    <%= "</tr>" %>
-    <%= end %>
+    <% results_table.each do |result| %>
+    <tr>
+      <td><%= result.game_id %></td>
+      <td><%= result.result %></td>
+    </tr>
+    <% end %>
   </table>
 
 </div>
