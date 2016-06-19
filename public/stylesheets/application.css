@@ -31,7 +31,7 @@
 }
 
 .jumbotron-fetch h2:nth-child(1){
-  display: center;
+  text-align: center;
 }
 
 .jumbotron-fetch {
