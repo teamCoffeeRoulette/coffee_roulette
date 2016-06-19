@@ -37,8 +37,7 @@ helpers do
   end
 
   def get_all_users
-    users = []
-
+    users = Order.where(game_id: session[:game_id])
   end
 end
 
