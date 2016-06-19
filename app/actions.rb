@@ -39,6 +39,11 @@ helpers do
   def get_all_users
     users = Game.find(session[:game_id]).users
   end
+
+  def results_table
+    result = Order.where(user_id: session [:user_id]).order("game_id DESC")
+  end
+
 end
 
 get '/' do
