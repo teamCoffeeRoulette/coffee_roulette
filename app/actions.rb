@@ -47,6 +47,7 @@ end
 
 get '/login' do
   if @current_user
+    adError: cannot load such file -- sinatra/contrib/all
     redirect "/"
   else
     erb :'login'
