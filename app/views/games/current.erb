@@ -9,7 +9,10 @@
 </ul>
 
 <div class="start_game">
-  <button type="button" class="btn btn-warning btn-lg btn-block">Start the Game!</button>
-  <button type="button" class="btn btn-default btn-sm btn-block">Go back</button>
+  <button type="button" href="/games/complete/:id" class="btn btn-warning btn-lg btn-block"> Start the Game!</button>
+  <button type="button" href="/games/new" class="btn btn-default btn-sm btn-block">Go back</button>
 </div>
 
+<div>
+  <h3> Looks like <%= get_all_users.sample.display_name %> is getting the coffee! </h3>
+</div>
