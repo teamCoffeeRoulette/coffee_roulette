@@ -1,6 +1,7 @@
 # Homepage (Root path)
 
 require 'twilio-ruby'
+require_relative 'src/email_provider'
 
 helpers do
   def get_current_user
@@ -43,7 +44,6 @@ helpers do
   def results_table
     result = Order.where(user_id: session[:user_id]).order("game_id DESC")
   end
-
 end
 
 get '/' do
@@ -185,5 +185,6 @@ get '/login/jairus' do
   redirect '/'
 end
 
-get '/test/twilio' do
+get '/test/email' do
+  email_provider.send_fetch_email("peter@werl.me", nil)
 end
