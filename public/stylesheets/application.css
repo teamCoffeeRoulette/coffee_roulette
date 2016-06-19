@@ -30,14 +30,14 @@
   height: 30px;
 }
 
-.jumbotron-fetch h2:nth-child(1){
-  text-align: center;
-  padding-left: 3em;
-}
-
 .jumbotron-fetch {
   display: block;
   width: 50%;
   margin: auto;
+}
+
+.jumbotron-fetch h2:nth-child(1){
+  text-align: center;
+  padding-left: 3em;
 }
 
