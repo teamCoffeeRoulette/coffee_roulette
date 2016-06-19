@@ -25,7 +25,13 @@
 }
 
 .navbar-brand {
-  padding-top:5px !important; 
-  padding-bottom:0 !important;
-  height: 30px;
+  padding-top: 5px !important; 
+  padding-bottom: 0 !important;
+  height:  30px;
+}
+
+.middleplease {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
