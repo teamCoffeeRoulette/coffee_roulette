@@ -1,12 +1,17 @@
 <div class="main_header">
-<body id="new_game">
-<h1> Start up a new game </h1>
+
+
+<div class="jumbotron" style="padding: 30px; display: block; width: 50%; margin: auto">
+  <body id="new_game">
+  <h2> Sweet! Who are you inviting to CoffeeRoulette? </h2>
+</br>
+  </body>
+
+  <form method="POST" action="/games/new">
+    <h4><label for="user_list">Add usernames to your game of CoffeeRoulette:</label></h4>
+    <input name="user_list" placeholder="Jason, Peter, Jairus..." type="text" />
+    <input value="Create game!" type="submit" />
+  </form>
 </div>
 
-</body>
-<form method="POST" action="/games/new">
-  <label for="user_list">Enter users to play:</label>
-  <input name="user_list" placeholder="Jason, Peter, Jairus..." type="text" />
-  <input value="Create game!" type="submit" />
-</form>
-
+</div>
