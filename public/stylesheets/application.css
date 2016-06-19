@@ -3,6 +3,18 @@ html *{
   letter-spacing: -.04em;
 }
 
+.btn-winner {
+  -webkit-border-radius: 13;
+  -moz-border-radius: 13;
+  border-radius: 13px;
+  color: #deb900;
+  font-size: 45px;
+  background: #ffffff;
+  padding: 20px 30px 20px 30px;
+  border: solid #deb900 2px;
+  text-decoration: none;
+}
+
 .logo-size {
   display: inline-block;
   max-width: 150px;
@@ -29,13 +41,10 @@ html *{
 .jumbotron {
   background: none;
   border-radius: 25px;
-  display: block; 
-  width: 50%; 
-  margin: auto
 }
 
 .jumbotron-add {
-  padding: 30px 80px 30px 30px; 
+  padding: 60px; 
   display: block; 
   width: 50%; 
   margin: auto
@@ -44,7 +53,6 @@ html *{
 .jumbotron-table {
   padding: 10px 20px 10px 20px; 
   display: block; 
-  width: 50%; 
   margin: auto
 }
 
@@ -95,5 +103,15 @@ html *{
 .jumbotron-display-names li {
   padding-top: 3px;
   padding-left: 8px;
+}
+
+.table-fixed thead {
+  width: 97%;
+}
+
+.table-fixed tbody {
+  height: 230px;
+  overflow-y: auto;
+  width: 100%;
 }
 
