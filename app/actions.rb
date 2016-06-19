@@ -56,6 +56,14 @@ helpers do
       "ERROR"
     end
   end
+  
+  def get_coffee_getter
+    coffee_order = Order.where(game_id: session[:game_id]).find_by(result: true)
+    if coffee_order
+      coffee_getter = coffee_order.user;
+      return coffee_getter
+    end
+  end
 end
 
 get '/' do
@@ -67,7 +75,7 @@ get '/:id' do |id|
 end
 
 get '/message/:id' do |id|
-  send_link_message(id)
+  send_link_message(id, get_coffee_getter.phone_number)
   redirect "/#{id}"
 end
 
