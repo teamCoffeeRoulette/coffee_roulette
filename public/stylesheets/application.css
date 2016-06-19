@@ -86,6 +86,11 @@ html *{
 }
 
 .jumbotron-display-names {
+  width: 40%;
   font-size: 1.7em;
+}
+
+.jumbotron-display-names li {
+  color: ##73066e;
 }
 
