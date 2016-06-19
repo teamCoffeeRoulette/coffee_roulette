@@ -175,6 +175,7 @@ post '/games/new' do
     order.result = true
     order.save
   end
+  session[:game_id] = @game.id
   redirect "/games/#{@game.id}"
 end
 
