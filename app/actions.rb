@@ -66,6 +66,11 @@ get '/:id' do |id|
   erb :'games/fetch'
 end
 
+get '/message/:id' do |id|
+  send_link_message(id)
+  redirect "/#{id}"
+end
+
 get '/login' do
   if @current_user
     redirect "/"
