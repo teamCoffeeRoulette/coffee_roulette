@@ -47,7 +47,7 @@ helpers do
 
   def get_coffee_getter_name
     coffee_order = Order.where(game_id: session[:game_id]).find_by(result: true)
-    puts 1
+    puts coffee_order
     if coffee_order
       coffee_getter = coffee_order.user;
       puts 2
