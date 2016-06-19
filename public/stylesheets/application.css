@@ -35,3 +35,7 @@
   width: 50%;
   margin: auto;
 }
+
+.jumbotron-fetch h1:nth-child(1){
+  display: center;
+}
