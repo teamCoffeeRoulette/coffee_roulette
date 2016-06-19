@@ -10,8 +10,10 @@ html *{
 }
 
 .start_game {
-    float: bottom;
-    padding-bottom: 200px;
+  margin: auto;  
+  float: bottom;
+  padding-top: 70px;
+  width: 20%;
 }
 
 #new_game, body {
