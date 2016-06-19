@@ -1,4 +1,5 @@
 require 'bcrypt'
+require 'phony'
 
 class User < ActiveRecord::Base
   include BCrypt
@@ -21,6 +22,11 @@ class User < ActiveRecord::Base
   def password=(new_password)
     @password = Password.create(new_password)
     self.password_hash = @password
+  end
+
+  # Get formatted phone number
+  def get_formated_phone_number
+    Phony.format(phone_number)
   end
 
 end
