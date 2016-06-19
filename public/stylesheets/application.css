@@ -3,6 +3,20 @@ html *{
   letter-spacing: -.04em;
 }
 
+
+.btn-winner {
+  -webkit-border-radius: 13;
+  -moz-border-radius: 13;
+  border-radius: 13px;
+  color: #deb900;
+  font-size: 45px;
+  background: #ffffff;
+  padding: 20px 30px 20px 30px;
+  border: solid #deb900 2px;
+  text-decoration: none;
+}
+
+
 .logo-size {
   display: inline-block;
   max-width: 150px;
@@ -30,7 +44,7 @@ html *{
 }
 
 .jumbotron-add {
-  padding: 50px; 
+  padding: 60px; 
   display: block; 
   width: 50%; 
   margin: auto
