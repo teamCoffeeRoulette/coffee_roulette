@@ -41,7 +41,7 @@ helpers do
   end
 
   def results_table
-    result = Order.where(user_id: session [:user_id]).order("game_id DESC")
+    result = Order.where(user_id: session[:user_id]).order("game_id DESC")
   end
 
 end
