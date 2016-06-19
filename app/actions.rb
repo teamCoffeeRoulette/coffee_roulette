@@ -181,7 +181,7 @@ get '/games/complete/:id' do |id|
     game_holder.save
   end
 
-  redirect '/'
+  redirect "/#{id}"
 end
 
 get '/login/peter' do
