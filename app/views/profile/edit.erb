@@ -16,16 +16,16 @@
 <div class="jumbotron jumbotron-add">
     <form class="bigger-font" method="POST" action="/profile/edit">
       <label for="display_name">User Name</label>
-      <input name="display_name" value="<%= @user.display_name %>" /></br>
+      <input name="display_name" value="<%= get_current_user.display_name %>" /></br>
 
       <label for="email">Email: </label>
-      <input name="email" value="<%= @user.email %>" /></br>
+      <input name="email" value="<%= get_current_user.email %>" /></br>
 
       <label for="phone_number">Phone Number:</label>
-      <input name="phone_number" value="<%= @user.phone_number %>" /></br>
+      <input name="phone_number" value="<%= get_current_user.phone_number %>" /></br>
 
       <label for="drink">Default Coffee Preference:</label>
-      <input name="drink" value="<%= @user.drink %>" /></br>
+      <input name="drink" value="<%= get_current_user.drink %>" /></br>
 
       <label for="password">Password:</label>
       <input name="password" value="<new password>" /></br>
