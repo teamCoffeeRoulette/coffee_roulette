@@ -46,3 +46,7 @@ html *{
   font-family: 'Quicksand', sans-serif;
 }
 
+.jumbotron-fetch li {
+  font-size: 1.2em;
+  padding-top: 4px
+}
