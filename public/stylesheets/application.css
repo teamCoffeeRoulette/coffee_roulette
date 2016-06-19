@@ -9,7 +9,7 @@
     padding-right: 200px;
 }
 
-#new_game, html {
+#new_game, body {
   background-image: url("http://static.squarespace.com/static/5262b425e4b04c04f40cd6e6/t/5262fb22e4b0bb6d9c2d260a/1382218530727/Coffee-Beans.jpg");
   margin: auto;
   position: center;
@@ -19,4 +19,6 @@
   background-repeat: no-repeat;
 }
 
-
+.jumbotron {
+  background: none;
+}
