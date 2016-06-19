@@ -45,9 +45,15 @@ helpers do
     result = Order.where(user_id: session[:user_id]).order("game_id DESC")
   end
 
-  def get_coffee_getter
-    coffee_getter = Order.where(game_id: session[:game_id]).find_by(result: true).user
-    return coffee_getter
+  def get_coffee_getter_name
+    coffee_order = Order.where(game_id: session[:game_id]).find_by(result: true)
+    if coffee_order
+      coffee_getter = coffee_order.user;
+      if coffee_getter
+        coffee_getter.display_name
+      end
+    end
+    "ERROR"
   end
 end
 
