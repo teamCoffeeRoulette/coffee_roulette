@@ -16,10 +16,6 @@ html *{
   text-decoration: none;
 }
 
-.btn:hover {
-  background: #faf296;
-  text-decoration: none;
-}
 
 .logo-size {
   display: inline-block;
