@@ -4,20 +4,39 @@
 
 <p>
 <p>
-<div class="jumbotron" style="padding: 30px; display: block; width: 50%; margin: auto">
+<div class="jumbotron">
   <h1><%= "Hello, " + get_current_name %></h1>
   <p>Welcome to CoffeeRoulette! Round up some friends who *don't* want to go for their own coffee.... And let's get started! </p>
   <p><a class="btn btn-primary btn-lg" href="/games/new" role="button">Start A New CoffeeRoulette</a></p>
 </div>
 
-<div>
-  <table class="table table-striped">
-    <% results_table.each do |result| %>
-    <tr>
-      <td><%= result.game_id %></td>
-      <td><%= result.result ? "Legend. You went for the coffee!" : "High five! You didn't have to go for coffee"%></td>
-    </tr>
-    <% end %>
-  </table>
+</br>
+</br>
+</br>
 
+<div class="container jumbotron jumbotron-table">
+  <div class="row">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="middleplease"> 
+          Your Coffee Routlette Results 
+        </h4>
+      </div>
+      <table class="table table-fixed">
+        <thead>
+          <tr>
+            <th>Header 1</th><th>Header 2</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% results_table.each do |result| %> 
+            <tr>
+             <td><%= result.game_id %></td>
+             <td><%= result.result ? "Legend. You went for the coffee!" : "High five! You didn't have to go for coffee"%></td> 
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>

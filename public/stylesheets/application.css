@@ -22,10 +22,20 @@
 .jumbotron {
   background: none;
   border-radius: 25px;
+  display: block; 
+  width: 50%; 
+  margin: auto
 }
 
 .jumbotron-add {
   padding: 30px 80px 30px 30px; 
+  display: block; 
+  width: 50%; 
+  margin: auto
+}
+
+.jumbotron-table {
+  padding: 10px 20px 10px 20px; 
   display: block; 
   width: 50%; 
   margin: auto
