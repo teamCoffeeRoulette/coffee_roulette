@@ -22,7 +22,7 @@
   <input name="email" value="<%= get_current_user.email %>" /></br>
 
   <label for="phone_number">Phone Number:</label>
-  <input name="phone_number" value="<%= get_current_user.phone_number %>" /></br>
+  <input name="phone_number" value="<%= get_current_user.get_formatted_phone_number %>" /></br>
 
   <label for="drink">Default Coffee Preference:</label>
   <input name="drink" value="<%= get_current_user.drink %>" /></br>
