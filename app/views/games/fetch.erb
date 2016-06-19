@@ -1,15 +1,16 @@
 <div class="main-header">
-  <h1> Purchase List </h1>
+  <h1> Time to get that coffee </h1>
+</div>
+
+<div class="jumbotron jumbotron-fetch">
+  <h2> Looks like <%= get_coffee_getter.display_name %> is getting the coffee! </h2>
+    <ul>
+      <%  get_game_participants_as_array.each do |player| %>
+        <%="<li>" + player.display_name + " - " + player.drink + "</li>" %>
+      <% end %> 
+    </ul>
 </div>
 
 <div>
-  <h3> Looks like <%= get_coffee_getter_name %> is getting the coffee! </h3>
-</div>
-
-<div>
-  <ul>
-    <%  get_game_participants_as_array.each do |player| %>
-      <%="<li>" + player.display_name + " - " + player.drink + "</li>" %>
-    <% end %> 
-  </ul>
+<%= "You wanted to go outside anyway, right " + get_coffee_getter_name %> 
 </div>

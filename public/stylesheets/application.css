@@ -1,3 +1,8 @@
+html *{
+  font-family:'Quicksand', sans-serif;
+  letter-spacing: -.04em;
+}
+
 .logo-size {
   display: inline-block;
   max-width: 150px;
@@ -45,4 +50,21 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.jumbotron-fetch {
+  display: block;
+  width: 50%;
+  margin: auto;
+}
+
+.jumbotron-fetch h2:nth-child(1){
+  text-align: center;
+  margin-top: -5px;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.jumbotron-fetch li {
+  font-size: 1.2em;
+  padding-top: 4px
 }
