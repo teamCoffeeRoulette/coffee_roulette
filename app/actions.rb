@@ -55,6 +55,10 @@ get '/' do
   erb :main
 end
 
+get '/:id' do |id|
+  erb :'games/fetch'
+end
+
 get '/login' do
   if @current_user
     redirect "/"
