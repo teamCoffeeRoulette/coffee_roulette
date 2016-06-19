@@ -28,8 +28,8 @@ configure :development, :test do
   ActiveRecord::Base.establish_connection(
        :adapter  => 'postgresql',
        :host     => 'ec2-50-19-219-148.compute-1.amazonaws.com',
-       :username => '',
-       :password => '',
+       :username => 'pvurmpxcrhxfpy',
+       :password => 'NUhcb84vgmVxbLF9n2UDQAEWqk',
        :database => 'd20hlg33c1mr4e',
        :encoding => 'utf8'
   )
