@@ -29,3 +29,8 @@
   padding-bottom:0 !important;
   height: 30px;
 }
+
+.jumbotron-fetch {
+  display: block;
+  width: 50%;
+}
