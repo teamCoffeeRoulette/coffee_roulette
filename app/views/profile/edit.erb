@@ -13,28 +13,30 @@
   </div>
 <% end %>
 
-<div class="jumbotron" style="padding: 30px; display: block; width: 50%; margin: auto">
-  <form method="POST" action="/profile/edit">
-    <label for="display_name">User Name</label>
-    <input name="display_name" value="<%= @user.display_name %>" /></br>
+<div class="jumbotron jumbotron-add">
+  <div class="bigger-font">
+    <form method="POST" action="/profile/edit">
+      <label for="display_name">User Name</label>
+      <input name="display_name" value="<%= @user.display_name %>" /></br>
 
-    <label for="email">Email: </label>
-    <input name="email" value="<%= @user.email %>" /></br>
+      <label for="email">Email: </label>
+      <input name="email" value="<%= @user.email %>" /></br>
 
-    <label for="phone_number">Phone Number:</label>
-    <input name="phone_number" value="<%= @user.phone_number %>" /></br>
+      <label for="phone_number">Phone Number:</label>
+      <input name="phone_number" value="<%= @user.phone_number %>" /></br>
 
-    <label for="drink">Default Coffee Preference:</label>
-    <input name="drink" value="<%= @user.drink %>" /></br>
+      <label for="drink">Default Coffee Preference:</label>
+      <input name="drink" value="<%= @user.drink %>" /></br>
 
-    <label for="password">Password:</label>
-    <input name="password" value="< Enter your new password HERE >" /></br>
+      <label for="password">Password:</label>
+      <input name="password" value="< Enter your new password HERE >" /></br>
 
-    <input value="Update Profile" type="submit" />
-  </form>
+      <input value="Update Profile" type="submit" />
+    </form>
+  </div>
 </div>
 <p>
 <p>
-<p><a href="/" class="middleplease">Back to Main Page</a></p>
+<p><a href="/" class="middleplease bigger-font">Back to Main Page</a></p>
 
 

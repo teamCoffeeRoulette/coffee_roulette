@@ -24,10 +24,22 @@
   border-radius: 25px;
 }
 
+.jumbotron-add {
+  padding: 50px 100px 50px 50px; 
+  display: block; 
+  width: 50%; 
+  margin: auto
+}
+
 .navbar-brand {
   padding-top: 5px !important; 
   padding-bottom: 0 !important;
   height:  30px;
+}
+
+.bigger-font {
+  font-size: 18;
+
 }
 
 .middleplease {
