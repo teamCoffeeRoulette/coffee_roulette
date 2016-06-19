@@ -14,8 +14,7 @@
 <% end %>
 
 <div class="jumbotron jumbotron-add">
-  <div class="bigger-font">
-    <form method="POST" action="/profile/edit">
+    <form class="bigger-font" method="POST" action="/profile/edit">
       <label for="display_name">User Name</label>
       <input name="display_name" value="<%= @user.display_name %>" /></br>
 
@@ -33,10 +32,9 @@
 
       <input value="Update Profile" type="submit" />
     </form>
-  </div>
 </div>
 <p>
 <p>
-<p><a href="/" class="middleplease bigger-font">Back to Main Page</a></p>
+<p><a href="/" class="middleplease">Back to Main Page</a></p>
 
 
