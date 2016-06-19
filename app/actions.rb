@@ -1,4 +1,7 @@
 # Homepage (Root path)
+
+require 'twilio-ruby'
+
 helpers do
   def get_current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
@@ -34,16 +37,13 @@ helpers do
   end
 
   def get_all_users
-    
+    users = []
+
   end
 end
 
 get '/' do
-  if @current_user.nil?
-    erb :main
-  else
-    erb :'index'
-  end
+  erb :main
 end
 
 get '/login' do
@@ -136,6 +136,14 @@ post '/games/new' do
     order_data = {user_id: User.find_by(display_name: player).id, game_id: @game.id}
     @order_new = Order.new(order_data)
     @order_new.save
+    
+    number = User.find_by(display_name: player).phone_number
+    client = Twilio::REST::Client.new ENV['TW_SSID'], ENV['TW_AUTH']
+    client.account.messages.create({
+      from: '+12044006394',
+      to:   "+1#{number}",
+      body: 'Coffee Roulette'
+    })
   end
 
   redirect "/games/#{@game.id}"
@@ -171,4 +179,7 @@ get '/login/jairus' do
   user = User.find_by(email: "jairus@email.com")
   session[:user_id] = user.id
   redirect '/'
+end
+
+get '/test/twilio' do
 end
