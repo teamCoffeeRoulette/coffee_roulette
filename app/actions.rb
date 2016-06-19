@@ -42,7 +42,7 @@ helpers do
   end
 
   def results_table
-    result = Order.where(user_id: session[:user_id]).order("game_id DESC")
+    result = Order.where(user_id: session[:user_id]).order("game_id DESC").first(10)
   end
 
   def get_coffee_getter_name
@@ -76,6 +76,10 @@ end
 
 get '/message/:id' do |id|
   send_link_message(id, get_coffee_getter.phone_number)
+  game = Game.find(id)
+  if game && !game.message
+    game.message = true
+  end
   redirect "/#{id}"
 end
 
