@@ -3,13 +3,10 @@
 </div>
 
 <div class="jumbotron jumbotron-fetch">
-  <h1> Looks like <%= get_coffee_getter.display_name %> is getting the coffee! </h1>
-
-  <div>
+  <h2> Looks like <%= get_coffee_getter.display_name %> is getting the coffee! </h2>
     <ul>
       <%  get_game_participants_as_array.each do |player| %>
         <%="<li>" + player.display_name + " - " + player.drink + "</li>" %>
       <% end %> 
     </ul>
-  </div>
 </div>
