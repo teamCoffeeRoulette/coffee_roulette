@@ -106,25 +106,23 @@ post '/users/new' do
 end
 
 get '/profile/show' do
-  @user = User.find(session[:user_id])
   erb :'profile/show'
 end
 
 get '/profile/edit' do
-  @user = User.find(session[:user_id])
   erb :'profile/edit'
 end
 
 post '/profile/edit' do
   if params[:phone_number] && test_number(params[:phone_number])
-    @user = User.find(session[:user_id])
-    if @user
-      @user.email = params[:email]
-      @user.display_name = params[:display_name]
-      @user.phone_number = params[:phone_number]
-      @user.drink = params[:drink]
-      @user.password = params[:password]
-      if @user.save
+    user = User.find(session[:user_id])
+    if user
+      user.email = params[:email]
+      user.display_name = params[:display_name]
+      user.phone_number = params[:phone_number]
+      user.drink = params[:drink]
+      user.password = params[:password]
+      if user.save
         redirect '/profile/show'
       else
         erb :'/profile/edit'
