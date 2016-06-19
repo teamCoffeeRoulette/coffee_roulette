@@ -118,15 +118,19 @@ end
 post '/profile/edit' do
   if params[:phone_number] && test_number(params[:phone_number])
     @user = User.find(session[:user_id])
-    @user.email = params[:email]
-    @user.display_name = params[:display_name]
-    @user.phone_number = params[:phone_number]
-    @user.drink = params[:drink]
-    @user.password = params[:password]
-    if @user.save
-      redirect '/profile/show'
+    if @user
+      @user.email = params[:email]
+      @user.display_name = params[:display_name]
+      @user.phone_number = params[:phone_number]
+      @user.drink = params[:drink]
+      @user.password = params[:password]
+      if @user.save
+        redirect '/profile/show'
+      else
+        erb :'/profile/edit'
+      end
     else
-      erb :'/profile/edit'
+      redirect '/'
     end
   else
     erb :'/profile/edit'
