@@ -1,7 +1,7 @@
 # Homepage (Root path)
 
-require 'twilio-ruby'
-require_relative 'src/email_provider'
+require_relative 'src/twilio_provider'
+require_relative 'src/phone_number_parser'
 
 helpers do
   def get_current_user
@@ -116,17 +116,20 @@ get '/profile/edit' do
 end
 
 post '/profile/edit' do
-  @user = User.find(session[:user_id])
-  @user.email = params[:email]
-  @user.display_name = params[:display_name]
-  @user.phone_number = params[:phone_number]
-  @user.drink = params[:drink]
-  @user.password = params[:password]
-  if @user.save
-    redirect '/profile/show'
+  if params[:phone_number] && test_number(params[:phone_number])
+    @user = User.find(session[:user_id])
+    @user.email = params[:email]
+    @user.display_name = params[:display_name]
+    @user.phone_number = params[:phone_number]
+    @user.drink = params[:drink]
+    @user.password = params[:password]
+    if @user.save
+      redirect '/profile/show'
+    else
+      erb :'/profile/edit'
+    end
   else
     erb :'/profile/edit'
-  end
 end
 
 get '/games/new' do
@@ -151,13 +154,9 @@ post '/games/new' do
     @order_new.save
     
     if params[:send_message]
-      number = User.find_by(display_name: player).phone_number
-      client = Twilio::REST::Client.new ENV['TW_SSID'], ENV['TW_AUTH']
-      client.account.messages.create({
-        from: '+12044006394',
-        to:   "+1#{number}",
-        body: 'Coffee Roulette'
-      })
+      user = User.find_by(display_name: player))
+      if user && user.phone_number
+        send_invite_message(user.phone_number)
     end
   end
   coffee_getter = User.find_by(display_name: players.sample)
@@ -180,7 +179,7 @@ get '/games/complete/:id' do |id|
     game_holder.is_active = false
     game_holder.save
   end
-
+  session[:game_id] = nil
   redirect "/#{id}"
 end
 
@@ -202,6 +201,3 @@ get '/login/jairus' do
   redirect '/'
 end
 
-get '/test/email' do
-  send_fetch_email("peter@werl.me", nil)
-end
