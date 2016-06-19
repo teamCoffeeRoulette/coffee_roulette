@@ -1,0 +1,13 @@
+<div class="main_header">
+<h1> Your CoffeeRoulette Game Roster:</h1>
+</div>
+
+<ul>
+<%  get_game_participants_as_array.each do |player| %>
+  <%="<li>" +  player.display_name + "</li>" %>
+<% end %> 
+</ul>
+
+<div>
+  <h3> Looks like <%= get_coffee_getter.display_name %> is getting the coffee! </h3>
+</div>
