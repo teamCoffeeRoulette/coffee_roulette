@@ -154,7 +154,7 @@ post '/games/new' do
     @order_new.save
     
     if params[:send_message]
-      user = User.find_by(display_name: player))
+      user = User.find_by(display_name: player)
       if user && user.phone_number
         send_invite_message(user.phone_number)
     end
