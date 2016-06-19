@@ -47,16 +47,14 @@ helpers do
 
   def get_coffee_getter_name
     coffee_order = Order.where(game_id: session[:game_id]).find_by(result: true)
-    puts session[:game_id]
     if coffee_order
       coffee_getter = coffee_order.user;
-      puts 2
       if coffee_getter
         coffee_getter.display_name
-        puts 3
       end
+    else
+      "ERROR"
     end
-    "ERROR"
   end
 end
 
