@@ -38,6 +38,7 @@
 
 .jumbotron-fetch h2:nth-child(1){
   text-align: center;
-  padding-left: 3em;
+  margin-top: -5px;
+  font-family: 'Quicksand', sans-serif;
 }
 
