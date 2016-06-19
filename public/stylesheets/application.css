@@ -3,6 +3,11 @@ html *{
   letter-spacing: -.04em;
 }
 
+.login-alert {
+    float: left;
+    width: 200px;
+}
+
 .btn-winner {
   -webkit-border-radius: 13;
   -moz-border-radius: 13;
