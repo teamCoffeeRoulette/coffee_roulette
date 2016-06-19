@@ -157,7 +157,7 @@ post '/games/new' do
     end
   end
   coffee_getter = User.find_by(display_name: players.sample)
-  coffee_getter_order = Order.where(user_id: coffee_getter.id).where(game_id: session[:game_id])
+  coffee_getter_order = Order.where(user_id: coffee_getter.id).where(game_id: @game.id)
   coffee_getter_order.each do |order|
     order.result = true
     order.save
