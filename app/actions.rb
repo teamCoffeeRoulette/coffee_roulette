@@ -56,7 +56,7 @@ get '/' do
 end
 
 get '/:id' do |id|
-  erb :'fetch'
+  erb :'games/fetch'
 end
 
 get '/login' do
