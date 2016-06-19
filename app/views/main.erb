@@ -15,7 +15,7 @@
     <% results_table.each do |result| %>
     <tr>
       <td><%= result.game_id %></td>
-      <td><%= result.result %></td>
+      <td><%= result.result ? "Legend. You went for the coffee!" : "High five! You didn't have to go for coffee"%></td>
     </tr>
     <% end %>
   </table>
