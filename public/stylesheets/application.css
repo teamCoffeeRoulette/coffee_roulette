@@ -3,6 +3,13 @@ html *{
   letter-spacing: -.04em;
 }
 
+.table-font {
+  font-size: 120%;
+  font-family: courier;
+  text-align: center;
+  margin: auto;
+}
+
 .logo-size {
   display: inline-block;
   max-width: 150px;
