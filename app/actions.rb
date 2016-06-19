@@ -130,6 +130,7 @@ post '/profile/edit' do
     end
   else
     erb :'/profile/edit'
+  end
 end
 
 get '/games/new' do
