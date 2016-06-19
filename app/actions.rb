@@ -47,6 +47,7 @@ helpers do
 
   def get_coffee_getter
     coffee_getter = Order.where(game_id: session[:game_id]).find_by(result: true)
+    return coffee_getter
   end
 end
 
