@@ -1,6 +1,7 @@
 # Homepage (Root path)
 
 require 'twilio-ruby'
+require_relative 'src/email_provider'
 
 helpers do
   def get_current_user
@@ -43,7 +44,6 @@ helpers do
   def results_table
     result = Order.where(user_id: session[:user_id]).order("game_id DESC")
   end
-
 end
 
 get '/' do
@@ -141,13 +141,15 @@ post '/games/new' do
     @order_new = Order.new(order_data)
     @order_new.save
     
-    number = User.find_by(display_name: player).phone_number
-    client = Twilio::REST::Client.new ENV['TW_SSID'], ENV['TW_AUTH']
-    client.account.messages.create({
-      from: '+12044006394',
-      to:   "+1#{number}",
-      body: 'Coffee Roulette'
-    })
+    if params[:send_message]
+      number = User.find_by(display_name: player).phone_number
+      client = Twilio::REST::Client.new ENV['TW_SSID'], ENV['TW_AUTH']
+      client.account.messages.create({
+        from: '+12044006394',
+        to:   "+1#{number}",
+        body: 'Coffee Roulette'
+      })
+    end
   end
 
   redirect "/games/#{@game.id}"
@@ -185,5 +187,6 @@ get '/login/jairus' do
   redirect '/'
 end
 
-get '/test/twilio' do
+get '/test/email' do
+  send_fetch_email("peter@werl.me", nil)
 end
