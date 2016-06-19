@@ -1,6 +1,5 @@
-<h2>Edit Profile</h2>
 <p>
-<h2> Update your profile preferences below:
+<h2 class="middleplease"> Edit your Profile</h2>
 <p>
 
 <% if @user && @user.errors.any? %>
@@ -14,25 +13,28 @@
   </div>
 <% end %>
 
-<form method="POST" action="/profile/edit">
-  <label for="display_name">User Name</label>
-  <input name="display_name" value="<%= @user.display_name %>" /></br>
+<div class="jumbotron jumbotron-add">
+    <form class="bigger-font" method="POST" action="/profile/edit">
+      <label for="display_name">User Name</label>
+      <input name="display_name" value="<%= @user.display_name %>" /></br>
 
-  <label for="email">Email: </label>
-  <input name="email" value="<%= @user.email %>" /></br>
+      <label for="email">Email: </label>
+      <input name="email" value="<%= @user.email %>" /></br>
 
-  <label for="phone_number">Phone Number:</label>
-  <input name="phone_number" value="<%= @user.phone_number %>" /></br>
+      <label for="phone_number">Phone Number:</label>
+      <input name="phone_number" value="<%= @user.phone_number %>" /></br>
 
-  <label for="drink">Default Coffee Preference:</label>
-  <input name="drink" value="<%= @user.drink %>" /></br>
+      <label for="drink">Default Coffee Preference:</label>
+      <input name="drink" value="<%= @user.drink %>" /></br>
 
-  <label for="password">Password:</label>
-  <input name="password" value="< Enter your new password HERE >" /></br>
+      <label for="password">Password:</label>
+      <input name="password" value="<new password>" /></br>
 
-  <input value="Update Account" type="submit" />
-</form>
-
-<p><a href="/">Back to Main Page</a></p>
+      <input value="Update Profile" type="submit" />
+    </form>
+</div>
+<p>
+<p>
+<p><a href="/" class="middleplease">Back to Main Page</a></p>
 
 

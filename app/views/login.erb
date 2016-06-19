@@ -1,13 +1,14 @@
-<h1>LOGIN</h1>
+<h1 class="middleplease">Login to CoffeeRoulette!</h1>
 
-<form method="POST" action="/login">
-  <label for="email">User Name</label>
-  <input name="email" type="text" />
+<div class="jumbotron jumbotron-add bigger-font">
+  <form method="POST" action="/login">
+    <label for="email">User Email:</label>
+    <input name="email" type="text" /></br>
 
-  <label for="password">Password:</label>
-  <input name="password" type="password" />
+    <label for="password">Password:</label>
+    <input name="password" type="password" /></br>
 
-  <input value="Login" type="submit" />
-
-  <a href="/users/new">Create Account</a>
+    <input value="Login" type="submit" href="/users/new"/>
+    <p>New to CoffeeRoulette? Cleck here to <a href="/users/new">Create a New User</a></p>
 </form>
+</div>
