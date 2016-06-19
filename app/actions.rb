@@ -151,7 +151,12 @@ post '/games/new' do
       })
     end
   end
-
+  coffee_getter = User.find_by(display_name: players.sample)
+  coffee_getter_order = Order.where(user_id: coffee_getter.id).where(game_id: session[:game_id])
+  coffee_getter_order.each do |order|
+    order.result = true
+    order.save
+  end
   redirect "/games/#{@game.id}"
 end
 
@@ -166,6 +171,7 @@ get '/games/complete/:id' do |id|
     game_holder.is_active = false
     game_holder.save
   end
+
   redirect '/'
 end
 
