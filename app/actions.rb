@@ -44,6 +44,10 @@ helpers do
   def results_table
     result = Order.where(user_id: session[:user_id]).order("game_id DESC")
   end
+
+  def get_coffee_getter
+    coffee_getter = Order.where(game_id: session[:game_id]).find_by(result: true)
+  end
 end
 
 get '/' do
