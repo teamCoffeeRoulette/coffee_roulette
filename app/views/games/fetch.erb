@@ -1,11 +1,15 @@
 <div class="main-header">
   <h1> Time to get that coffee </h1>
 </div>
+  
+  <div>
+    <button type="button" class="btn btn-winner btn-lg">
+      Looks like <%= get_coffee_getter_name %> is getting the coffee! 
+    </button>
+  </div>
 
 <div class="jumbotron jumbotron-fetch">
-  <button class="btn btn-winner">
-    Looks like <%= get_coffee_getter_name %> is getting the coffee! 
-  </button>
+    <h2> Your coffee run requires: </h2>
     <ul>
       <%  get_game_participants_as_array.each do |player| %>
         <%="<li>" + player.display_name + " - " + player.drink + "</li>" %>

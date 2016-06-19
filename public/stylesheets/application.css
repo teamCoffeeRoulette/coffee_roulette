@@ -9,10 +9,15 @@ html *{
   -moz-border-radius: 13;
   border-radius: 13px;
   color: #deb900;
-  font-size: 31px;
+  font-size: 53px;
   background: #ffffff;
   padding: 20px 30px 20px 30px;
   border: solid #deb900 2px;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: #faf296;
   text-decoration: none;
 }
 
