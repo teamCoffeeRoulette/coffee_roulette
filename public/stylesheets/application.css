@@ -80,5 +80,8 @@ html *{
 }
 
 .go-outside {
-  display: block; 
+  font-size: 2em;
+  text-align: center;
+  padding-top: 80px;
 }
+
