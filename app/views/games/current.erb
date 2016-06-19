@@ -5,7 +5,7 @@
 <div class="jumbotron jumbotron-display-names">
   <ul>
   <%  get_game_participants_as_array.each do |player| %>
-    <%="<li>" +  player.display_name + "</li>" %>
+    <%="<li>" +  player.display_name + " - " + player.drink"</li>" %>
   <% end %> 
   </ul>
 </div>
