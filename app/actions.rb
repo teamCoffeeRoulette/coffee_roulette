@@ -125,7 +125,7 @@ post '/profile/edit' do
     if user
       user.email = params[:email]
       user.display_name = params[:display_name]
-      user.phone_number = params[:phone_number]
+      user.phone_number = test_number(params[:phone_number])
       user.drink = params[:drink]
       user.password = params[:password]
       if user.save
