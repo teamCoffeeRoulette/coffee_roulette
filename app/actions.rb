@@ -202,4 +202,3 @@ get '/login/jairus' do
   session[:user_id] = user.id
   redirect '/'
 end
-end
