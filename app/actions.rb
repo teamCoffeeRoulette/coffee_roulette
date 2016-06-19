@@ -37,7 +37,8 @@ helpers do
   end
 
   def get_all_users
-    
+    users = []
+
   end
 end
 
