@@ -79,6 +79,7 @@ get '/message/:id' do |id|
   game = Game.find(id)
   if game && !game.message
     game.message = true
+    game.save
   end
   redirect "/#{id}"
 end
