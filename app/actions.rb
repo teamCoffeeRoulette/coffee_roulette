@@ -20,9 +20,18 @@ helpers do
   def get_login_or_logout
     get_current_user
     if @current_user
-      return "<a href=/logout>Logout</a>"
+      return "/logout"
     else
-      return "<a href=/login>Login</a>"
+      return "/login"
+    end
+  end
+
+  def get_login_or_logout_text
+    get_current_user
+    if @current_user
+      return "Logout"
+    else
+      return "Login"
     end
   end
 
