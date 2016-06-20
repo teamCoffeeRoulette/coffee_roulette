@@ -122,7 +122,7 @@ html *{
 }
 
 .text-notify {
-  margin: auto;
+  text-align: center;
   color: #deb900;
 }
 
