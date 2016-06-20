@@ -3,9 +3,12 @@
 </div>
   
 <div class="middleplease">
-  <button type="button" class="btn-winner">
+  <a href=<%= "/message/#{session[:game_id]}" %>><button type="button" class="btn-winner">
     Looks like <%= get_coffee_getter_name %> is getting the coffee! 
-  </button>
+  </button></a>
+</div>
+<div class="text-notify">
+  <h4> Click above to send text notification </h4>
 </div>
 <p class="middleplease"><p>
 </br>
