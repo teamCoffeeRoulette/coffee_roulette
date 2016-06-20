@@ -3,6 +3,11 @@ html *{
   letter-spacing: -.04em;
 }
 
+.profile-font {
+  font-family:'Quicksand', sans-serif;
+  letter-spacing: -.04em;
+}
+
 .login-alert {
     float: left;
     width: 200px;
@@ -101,8 +106,10 @@ html *{
 }
 
 .jumbotron-display-names {
+  padding: 60px; 
+  display: block; 
   margin: auto;
-  width: 40%;
+  width: 50%;
   font-size: 1.7em;
 }
 
